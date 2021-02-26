@@ -357,7 +357,7 @@ app.get('/verify/:handle/:contestId/:index', (request, response) => {
   verifySubmission(handle, cid, index, response)
 })
 
-app.post('/skip/:handle/:pid', (request, response) => {
+app.get('/skip/:handle/:pid', (request, response) => {
   skipQuestion(request.params.handle, request.params.pid, response)
 })
 
