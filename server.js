@@ -323,7 +323,7 @@ const skipQuestion = (handle, pid, response) => {
 }
 
 app.get('/suggest/:handle/:easy/:medium/:hard/:low?/:high?', (request, response) => {
-  response.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  response.setHeader('Access-Control-Allow-Origin', '*');
   response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
   response.setHeader('Access-Control-Allow-Credentials', true);
@@ -359,7 +359,7 @@ app.get('/verify/:handle/:contestId/:index', (request, response) => {
   verifySubmission(handle, cid, index, response)
 })
 
-app.get('/skip/:handle/:pid', (request, response) => {
+app.post('/skip/:handle/:pid', (request, response) => {
   response.setHeader('Access-Control-Allow-Origin', '*');
   response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
@@ -376,7 +376,7 @@ app.get('/usercount', (request, response) => {
     count: usercount
   })
 })
-app.get('/later/:handle/:pid', (request, response) => {
+app.post('/later/:handle/:pid', (request, response) => {
   response.setHeader('Access-Control-Allow-Origin', '*');
   response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
