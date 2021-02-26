@@ -3,14 +3,17 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+require('dotenv').config()
+const PORT = process.env.PORT || 8080
+const mURL = process.env.MONGO_URL
 var CFDown = false
 var userCount = 0
-const PORT = 8080;
+//const PORT = 8080;
 app.use(bodyParser.urlencoded({
   extended: false
 }))
 app.use(bodyParser.json())
-mongoose.connect('mongodb://localhost:27017/myDB', {
+mongoose.connect(mURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
