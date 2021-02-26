@@ -321,6 +321,10 @@ const skipQuestion = (handle, pid, response) => {
 }
 
 app.get('/suggest/:handle/:easy/:medium/:hard/:low?/:high?', (request, response) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
   if (CFDown) {
     response.json({
       errorMessage: "Codeforces is down"
@@ -337,6 +341,10 @@ app.get('/suggest/:handle/:easy/:medium/:hard/:low?/:high?', (request, response)
 })
 
 app.get('/verify/:handle/:contestId/:index', (request, response) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
   if (CFDown) {
     response.json({
       errorMessage: "Codeforces is down at the moment!"
@@ -350,15 +358,27 @@ app.get('/verify/:handle/:contestId/:index', (request, response) => {
 })
 
 app.get('/skip/:handle/:pid', (request, response) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
   skipQuestion(request.params.handle, request.params.pid, response)
 })
 
 app.get('/usercount', (request, response) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
   response.json({
     count: usercount
   })
 })
 app.get('/later/:handle/:pid', (request, response) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
   try {
     User.find({
       handle: request.params.handle
